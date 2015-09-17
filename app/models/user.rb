@@ -1,3 +1,13 @@
 class User < ActiveRecord::Base
-  belongs_to :destination
+  has_many :destinations
+  validates :country, :books, presence: true
+
+  # before_save :default_values
+
+  # private
+
+  # def default_values
+  #   self.completed ||= false
+  #   nil                           # required so that TX will not rollback!!!
+  # end
 end
