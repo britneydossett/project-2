@@ -2,12 +2,34 @@ class User < ActiveRecord::Base
   has_many :destinations
   validates :country, :books, presence: true
 
-  # before_save :default_values
+  before_save { email.downcase! }
 
-  # private
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 80 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
 
-  # def default_values
-  #   self.completed ||= false
-  #   nil                           # required so that TX will not rollback!!!
-  # end
+  has_secure_password
+
+  validates :password, length: { minimum: 8, maximum: 20 }
+
+  validate :password_complexity
+
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.digest(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def password_complexity
+    if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./)
+      errors.add :password, "must include at least one lowercase letter, one uppercase letter, and one digit"
+    end
+  end
+
+  def to_s
+    email
+  end
 end
