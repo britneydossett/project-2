@@ -16,8 +16,16 @@
 </p>
 
 <p>
-  <strong>Destination:</strong>
-  <%= @user.destination %>
+  <strong>Destinations:</strong>
+  <% @destinations.each do |destination| %>
+  <%= destination.city %>,
+  <%= destination.country %> <br>
+    <ul>
+      <% destination.books.each do |book| %>
+    <li><%= book %></br></li>
+    <% end %>
+    </ul>
+  <% end %>
 </p>
 
 
