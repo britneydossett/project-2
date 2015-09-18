@@ -5,6 +5,11 @@ class DestinationsController < ApplicationController
   # GET /destinations.json
   def index
     @destinations = Destination.all
+    @hash = Gmaps4rails.build_markers(@destinations) do |destination, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.title user.title
+    end
   end
 
   # GET /destinations/1

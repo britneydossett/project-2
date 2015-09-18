@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @user = User.all
+    @users = User.all
   end
 
   # GET /users/1
