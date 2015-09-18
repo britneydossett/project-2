@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.user = current_user       # associate the new todo to the current_user
+
 
     respond_to do |format|
       if @user.save
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
                              :last_name,
                              :email,
                              :password,
-                             :password_confirmation)
+                             :password_confirmation, destination_ids: [])
     end
 
     def verify_correct_user
