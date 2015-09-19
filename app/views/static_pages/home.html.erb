@@ -11,19 +11,19 @@ handler.buildMap({ provider: {
   disableDefaultUI: true,
   maxZoom: 2
 }, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  // markers = handler.addMarkers([
-  //   {
-  //     "lat": 51.500152,
-  //     "lng": -0.126236,
-  //     "picture": {
-  //       "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-  //       "width":  36,
-  //       "height": 36,
-  //     },
-  //     "infowindow": "hello!"
-  //   }
-  // ]);
+      // markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  markers = handler.addMarkers([
+    {
+      "lat": 51.500152,
+      "lng": -0.126236,
+      // "picture": {
+      //   "url": "https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/books.png",
+      //   "width":  36,
+      //   "height": 36,
+      // },
+      "infowindow": "hello!"
+    }
+  ]);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
   handler.getMap().setZoom(2);
