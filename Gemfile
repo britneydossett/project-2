@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails_12factor', group: :production
 
+gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 
