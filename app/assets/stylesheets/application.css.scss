@@ -6,6 +6,26 @@
 
 body {
   padding-top: $navbar-height + 10px;
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 18px;
+}
+
+header {
+  font-family: 'Josefin Sans', sans-serif !important;
+}
+
+.navbar-default {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 19px;
+}
+
+.navbar-brand { font-family: 'Josefin Sans', san-serif !important;
+  font-size: 32px;
+}
+
+.navbar-nav  {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 19px;
 }
 
 .page-header {
@@ -29,7 +49,7 @@ main {
   width: 1000px;
 }
 
-.todos {
+.destinations {
   th, td {
     text-align:center
   }

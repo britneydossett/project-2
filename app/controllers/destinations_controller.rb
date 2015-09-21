@@ -9,7 +9,9 @@ class DestinationsController < ApplicationController
       marker.lat destination.latitude
       marker.lng destination.longitude
       marker.title destination.title
+      # marker.infowindow destination.description
     end
+    @markers = Destination.all.to_gmaps4rails    #@markers contain valid json to pass to the view
   end
 
   # GET /destinations/1
