@@ -3,6 +3,4 @@ class Destination < ActiveRecord::Base
   validates :country, :books, presence: true
   geocoded_by :title
   after_validation :geocode
-  acts_as_gmappable
-
 end
