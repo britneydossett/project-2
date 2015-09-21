@@ -16,19 +16,20 @@ handler.buildMap({ provider: {
   maxZoom: 2,
   styles: mapStyle
 }, internal: {id: 'map'}}, function(){
-      // markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  markers = handler.addMarkers([
-    {
-      "lat": 51.500152,
-      "lng": -0.126236,
-      "picture": {
-        "url": "http://www2.psd100.com/ppp/2013/10/0501/Open-book-icon-1005102438.png",
-        "width":  50,
-        "height": 50,
-        "z-index": 5,
-      },
-      "infowindow": "London"
-    }])
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      console.log('markers:', markers);
+  // markers = handler.addMarkers([
+  //   {
+  //     "lat": 51.500152,
+  //     "lng": -0.126236,
+  //     "picture": {
+  //       "url": "http://www2.psd100.com/ppp/2013/10/0501/Open-book-icon-1005102438.png",
+  //       "width":  32,
+  //       "height": 27,
+  //       "z-index": 5,
+  //     },
+  //     "infowindow": "London"
+  //   }])
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
   handler.getMap().setZoom(2);

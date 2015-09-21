@@ -1,8 +1,10 @@
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>City:</strong>
-  <%= @destination.city %>
+   <%= @destination.city %>
 </p>
 
 <p>
@@ -12,7 +14,9 @@
 
 <p>
   <strong>Books:</strong>
-  <%= @destination.books %>
+  <% @destination.books.each do |book| %>
+    <%= book %></br>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_destination_path(@destination) %> |

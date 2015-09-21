@@ -3,4 +3,10 @@ class Destination < ActiveRecord::Base
   validates :country, :books, presence: true
   geocoded_by :title
   after_validation :geocode
+
+  def getInfoWindowHtml
+    "<div><p style='color: red'>London</p>" +
+    "<a href='/destinations/#{id}'>Get Book Suggestions</a></div>"
+    # <%= link_to 'Show', user %>
+  end
 end
