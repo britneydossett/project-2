@@ -14,9 +14,11 @@
 
 <p>
   <strong>Books:</strong>
+  <ol>
   <% @destination.books.each do |book| %>
-    <%= book %></br>
+    <li><%= book %></br></li>
     <% end %>
+  </ol>
 </p>
 
 <%= link_to 'Edit', edit_destination_path(@destination) %> |

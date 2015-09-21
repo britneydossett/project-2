@@ -5,7 +5,7 @@ class Destination < ActiveRecord::Base
   after_validation :geocode
 
   def getInfoWindowHtml
-    "<div><p style='color: red'>London</p>" +
+    "<div><p>#{city}</p>" +
     "<a href='/destinations/#{id}'>Get Book Suggestions</a></div>"
     # <%= link_to 'Show', user %>
   end

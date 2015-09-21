@@ -4,12 +4,16 @@ class DestinationsController < ApplicationController
   # GET /destinations
   # GET /destinations.json
   def index
-    puts '*********** index ************'
     @destinations = Destination.all
     @hash = Gmaps4rails.build_markers(@destinations) do |destination, marker|
       marker.lat destination.latitude
       marker.lng destination.longitude
       marker.infowindow "#{destination.getInfoWindowHtml}"
+      marker.picture({
+        :url     => "http://www2.psd100.com/ppp/2013/10/0501/Open-book-icon-1005102438.png",
+        :width   => 32,
+        :height  => 27
+        })
     end
 
     # @hash = [
