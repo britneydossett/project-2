@@ -31,24 +31,16 @@ class DestinationsController < ApplicationController
     # ]
 
     # puts "hash: #{@hash}"
-
-    # @markers = Destination.all.to_gmaps4rails    #@markers contain valid json to pass to the view
   end
 
   # GET /destinations/1
   # GET /destinations/1.json
   def show
-    # @destination = Destination.all
+  end
 
-    # respond_to do |format|
-    #   if @destination.show(destination_params)
-    #     format.html { redirect_to @destination }
-    #     format.json { render :show, status: :ok, location: @destination }
-    #   else
-    #     format.html { render :index }
-    #     format.json { render json: @destination.errors, status: :unprocessable_entity }
-    #   end
-    # end
+  def favorite
+   destination = Destination.find(params[:id])
+   destination.user = current_user << user.destination.book
   end
 
   # GET /destinations/new

@@ -27,6 +27,15 @@
     </ul>
   <% end %>
 </p>
+<!--
+<h3>Destinations</h3>
+<ul class="list-group">
+<% @user.destinations.each do |destination| %>
+  <li class="list-group-item">
+    <%= destination.books %>
+  </li>
+<% end %>
+</ul> -->
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

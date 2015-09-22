@@ -31,6 +31,7 @@ gem 'rails_12factor', group: :production
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'httparty'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
