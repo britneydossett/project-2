@@ -7,13 +7,13 @@ This app is my 2nd project for General Assembly's Web Development Immersive cour
 
 ##Technologies Used
 
-*Ruby 2.2
-*Rails 4.2
-*PostgreSQL 9.4
-*Twitter Bootstrap 3.3
-*SASS 3.4
-*bootstrap-generators 3.3
-*GMaps for rails
+* Ruby 2.2
+* Rails 4.2
+* PostgreSQL 9.4
+* Twitter Bootstrap 3.3
+* SASS 3.4
+* bootstrap-generators 3.3
+* GMaps for rails
 
 ##Links
 
