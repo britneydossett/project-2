@@ -101,6 +101,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:city, :country, :books) #, user_ids: [])
+      params.require(:destination).permit(:city, :country, :books) #user_ids: [])
     end
 end

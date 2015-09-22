@@ -1,11 +1,11 @@
 class Destination < ActiveRecord::Base
   has_and_belongs_to_many :users
   validates :country, :books, presence: true
-  geocoded_by :title
+  geocoded_by :city
   after_validation :geocode
 
   def getInfoWindowHtml
-    "<div><p>#{city}</p>" +
+    "<div><p>#{city}, #{country}</p>" +
     "<a href='/destinations/#{id}'>Get Book Suggestions</a></div>"
   end
 
