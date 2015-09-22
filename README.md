@@ -14,6 +14,7 @@ This app is my 2nd project for General Assembly's Web Development Immersive cour
 * SASS 3.4
 * bootstrap-generators 3.3
 * GMaps for rails
+* Heroku
 
 ##Links
 
