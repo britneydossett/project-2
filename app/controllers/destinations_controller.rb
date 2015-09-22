@@ -15,22 +15,6 @@ class DestinationsController < ApplicationController
         :height  => 27
         })
     end
-
-    # @hash = [
-    #   {
-    #     lat: 51.500152,
-    #     lng: -0.126236,
-    #     picture: {
-    #       url: "http://www2.psd100.com/ppp/2013/10/0501/Open-book-icon-1005102438.png",
-    #       width:  32,
-    #       height: 27,
-    #       'z-index': 5
-    #   },
-    #   infowindow: "London"
-    #   }
-    # ]
-
-    # puts "hash: #{@hash}"
   end
 
   # GET /destinations/1
@@ -39,8 +23,8 @@ class DestinationsController < ApplicationController
   end
 
   def favorite
-   destination = Destination.find(params[:id])
-   destination.user = current_user << user.destination.book
+   @destination = Destination.find(params[:id])
+   current_user.destinations << destination.books
   end
 
   # GET /destinations/new
@@ -101,6 +85,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:city, :country, :books) #user_ids: [])
+      params.require(:destination).permit(:city, :country, :books, user_ids: [])
     end
 end

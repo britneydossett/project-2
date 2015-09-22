@@ -9,16 +9,16 @@ class Destination < ActiveRecord::Base
     "<a href='/destinations/#{id}'>Get Book Suggestions</a></div>"
   end
 
-  def self.get_author(book)
-    response = HTTParty.get "https://www.goodreads.com/search.xml?key=sperNAdGlluygbFCKZqL3g&q=#{book.gsub(" ", "+")}"
-    results = response["GoodreadsResponse"]["search"]["results"]
-    puts "image results: #{results}"
-    if results
-      url = results["work"].first["best_book"]["author"]["name"]
-    else
-      'Not Found'
-    end
-  end
+  # def self.get_author(book)
+  #   response = HTTParty.get "https://www.goodreads.com/search.xml?key=sperNAdGlluygbFCKZqL3g&q=#{book.gsub(" ", "+")}"
+  #   results = response["GoodreadsResponse"]["search"]["results"]
+  #   puts "image results: #{results}"
+  #   if results
+  #     url = results["work"].first["best_book"]["author"]["name"]
+  #   else
+  #     'Not Found'
+  #   end
+  # end
 
   def self.get_image_url(book)
     puts "Getting image url for book = #{book}"

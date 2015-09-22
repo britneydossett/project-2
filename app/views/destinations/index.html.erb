@@ -19,7 +19,7 @@
 
     handler.buildMap({ provider: {
       disableDefaultUI: true,
-      maxZoom: 2,
+      maxZoom: 3,
       styles: mapStyle
     }, internal: {id: 'map'}}, function() {
         markers = handler.addMarkers(<%=raw @hash.to_json %>);

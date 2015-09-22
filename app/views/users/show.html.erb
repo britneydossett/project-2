@@ -1,3 +1,5 @@
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,15 +29,5 @@
     </ul>
   <% end %>
 </p>
-<!--
-<h3>Destinations</h3>
-<ul class="list-group">
-<% @user.destinations.each do |destination| %>
-  <li class="list-group-item">
-    <%= destination.books %>
-  </li>
-<% end %>
-</ul> -->
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
