@@ -23,8 +23,9 @@ class DestinationsController < ApplicationController
   end
 
   def favorite
-   @destination = Destination.find(params[:id])
-   current_user.destinations << destination.books
+   destination = Destination.find(params[:id])
+   current_user.destinations << destination
+   redirect_to current_user
   end
 
   # GET /destinations/new

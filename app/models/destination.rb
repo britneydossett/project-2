@@ -9,27 +9,39 @@ class Destination < ActiveRecord::Base
     "<a href='/destinations/#{id}'>Get Book Suggestions</a></div>"
   end
 
-  # def self.get_author(book)
-  #   response = HTTParty.get "https://www.goodreads.com/search.xml?key=sperNAdGlluygbFCKZqL3g&q=#{book.gsub(" ", "+")}"
-  #   results = response["GoodreadsResponse"]["search"]["results"]
-  #   puts "image results: #{results}"
-  #   if results
-  #     url = results["work"].first["best_book"]["author"]["name"]
-  #   else
-  #     'Not Found'
-  #   end
-  # end
+  def self.get_author(book)
+    response = HTTParty.get "https://www.goodreads.com/search.xml?key=sperNAdGlluygbFCKZqL3g&q=#{book.gsub(" ", "+")}"
+    results = response["GoodreadsResponse"]["search"]["results"]
+    # counter = 0
+      if results && results["work"].is_a?(Array)
+        url = results["work"][0]["best_book"]["author"]["name"]
+
+          if url.include?('nophoto')
+            return results["work"][1]["best_book"]["author"]["name"]
+          else
+            return url
+          end
+      else
+        'Not Found'
+      end
+    # counter++
+  end
 
   def self.get_image_url(book)
-    puts "Getting image url for book = #{book}"
     response = HTTParty.get "https://www.goodreads.com/search.xml?key=sperNAdGlluygbFCKZqL3g&q=#{book.gsub(" ", "+")}"
-    puts "response: #{response}"
     results = response["GoodreadsResponse"]["search"]["results"]
-    puts "image results: #{results}"
-    if results
-      url = results["work"].first["best_book"]["image_url"]
-    else
-      'Not Found'
-    end
+    # counter = 0
+      if results && results["work"].is_a?(Array)
+        url = results["work"][0]["best_book"]["image_url"]
+
+          if url.include?('nophoto')
+            return results["work"][1]["best_book"]["image_url"]
+          else
+            return url
+          end
+      else
+        'Not Found'
+      end
+    # counter++
   end
 end

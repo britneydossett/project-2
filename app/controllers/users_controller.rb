@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @destinations = @user.destinations
+    @destinations = current_user.destinations.uniq
   end
 
   # GET /users/new
