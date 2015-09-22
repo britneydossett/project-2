@@ -18,7 +18,7 @@
   <% @destination.books.each do |book| %>
     <li><%= book %> -- By: <%= Destination.get_author(book) %>
       <%= form_tag(controller: "destinations", action: "favorite", method: "post") do %>
-        <%= submit_tag "Favorite"%>
+        <%= submit_tag "Favorite" %>
       <% end %>
       <%= image_tag Destination.get_image_url(book) %>
   <% end %>
