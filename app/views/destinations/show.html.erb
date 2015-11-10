@@ -2,25 +2,29 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="bookInfo">
   <strong>City:</strong>
    <%= @destination.city %>
 </p>
 
-<p>
+<p class="bookInfo">
   <strong>Country:</strong>
   <%= @destination.country %>
 </p>
 
-<p>
+<p class="bookInfo">
   <strong>Books:</strong>
   <ol>
   <% @destination.books.each do |book| %>
-    <li><%= book %> -- By: <%= Destination.get_author(book) %>
+    <li><%= image_tag Destination.get_image_url(book) %>
+    </br>
+      <%= book %> -- By: <%= Destination.get_author(book) %>
       <%= form_tag(controller: "destinations", action: "favorite", method: "post") do %>
-        <%= submit_tag "Favorite" %>
+        <button type="submit" class="btn btn-danger">
+          <i class="fa fa-heart-o fa-2x"></i>
+        </button>
       <% end %>
-      <%= image_tag Destination.get_image_url(book) %>
+      <br>
   <% end %>
   </ol>
 </p>

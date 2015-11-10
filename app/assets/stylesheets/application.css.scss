@@ -3,6 +3,7 @@
 @import "bootstrap-custom-variables.scss";
 @import "bootstrap-sprockets.scss";
 @import "bootstrap.scss";
+@import "font-awesome";
 
 body {
   padding-top: $navbar-height + 10px;
@@ -22,6 +23,7 @@ header {
 .navbar-brand {
   font-family: 'Josefin Sans', sans-serif !important;
   font-size: 34px;
+  color: #2D5348;
 }
 
 .navbar-nav  {
@@ -59,4 +61,12 @@ main {
 .marker_container {
   background-color: white;
   border: 1px solid black;
+}
+
+.bookInfo {
+  font-size: 23px;
+}
+
+ol {
+  font-size: 20px;
 }
