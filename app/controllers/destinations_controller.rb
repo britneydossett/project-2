@@ -24,7 +24,7 @@ class DestinationsController < ApplicationController
 
   def favorite
    destination = Destination.find(params[:id])
-   current_user.destinations << destination
+   current_user.destinations << destination.book
    current_user ? redirect_to(current_user) : redirect_to(signup_path)
   end
 

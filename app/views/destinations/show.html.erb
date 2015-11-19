@@ -14,19 +14,18 @@
 
 <p class="bookInfo">
   <strong>Books:</strong>
-  <ol>
-  <% @destination.books.each do |book| %>
-    <li><%= image_tag Destination.get_image_url(book) %>
-    </br>
+  <dl class="dl-horizontal">
+  <dt><% @destination.books.each do |book| %>
+    <dd><%= image_tag Destination.get_image_url(book) %><dd>
       <%= book %> -- By: <%= Destination.get_author(book) %>
       <%= form_tag(controller: "destinations", action: "favorite", method: "post") do %>
         <button type="submit" class="btn btn-danger">
           <i class="fa fa-heart-o fa-2x"></i>
-        </button>
+        </button><dt>
       <% end %>
       <br>
   <% end %>
-  </ol>
+  </dl>
 </p>
 
 <%= link_to 'Back', destinations_path %>

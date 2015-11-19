@@ -15,7 +15,7 @@ class Destination < ActiveRecord::Base
     # counter = 0
       if results && results["work"].is_a?(Array)
         url = results["work"][0]["best_book"]["author"]["name"]
-
+        puts results
           if url.include?('nophoto')
             return results["work"][1]["best_book"]["author"]["name"]
           else
